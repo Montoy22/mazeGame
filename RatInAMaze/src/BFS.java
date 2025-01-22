@@ -46,9 +46,6 @@ public class BFS {
 
                     //track the path
                     pathMap.put(newRow +","+newCol,row + "," + col);
-
-                    //FOR DEBBUGING
-                    //System.out.println("Tracking path: " + newRow + "," + newCol + " -> " + row + "," + col);
                 }
             }
         }
