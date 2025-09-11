@@ -13,7 +13,7 @@ public class DFS2_final {
     boolean SOLUTIONEXIST=false;
 
 
-    public String[][] solveMaze(int[][] maze,int startingRow, int startingCol, boolean step, JButton[][] buttonsArr)//outputs solutions of maze
+    public String[][] solveMaze(int[][] maze,int startingRow, int startingCol)//outputs solutions of maze
     {
         ROWBOUNDS = maze.length;
         COLBOUNDS = maze[0].length;
@@ -30,7 +30,6 @@ public class DFS2_final {
 
             // cell are visited
             visited[row][col] = true;
-            if(step){buttonsArr[row][col].setBackground(new Color(11, 206, 206));}
             //update path
             path.add("["+row + "," + col+"]");
 

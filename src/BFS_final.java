@@ -12,13 +12,9 @@ public class BFS_final {
     boolean SOLUTIONEXIST=false;
     String [][] stepByStep;
     static mazeUI mazeui;
-//    BFS_final(mazeUI mazeui){
-//        this.mazeui=mazeui;
-//
-//    }
 
 
-    public String[][] solveMaze(int[][] maze, int startingRow, int startingCol, boolean step, JButton[][] buttonsArr)//outputs solutions of maze
+    public String[][] solveMaze(int[][] maze, int startingRow, int startingCol, boolean step)//outputs solutions of maze
     {
         ROWBOUNDS = maze.length;//maximum number of row in maze
         COLBOUNDS = maze[0].length;// max number of columns in maze
@@ -59,8 +55,6 @@ public class BFS_final {
                     stepByStep[index][0]=Integer.toString(newRow);
                     stepByStep[index][1]=Integer.toString(newCol);
                     index++;
-                    if(step){buttonsArr[newRow][newCol].setBackground(new Color(11, 206, 206));}
-
                     //track the path
                     pathMap.put(newRow +","+newCol,row + "," + col);
 

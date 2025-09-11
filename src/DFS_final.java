@@ -12,11 +12,9 @@ public class DFS_final {
 
     boolean SOLUTIONEXIST=false;
     ArrayList<String> OPTIMAL= new ArrayList<>();
-    JButton[][] buttons;
     boolean stepByStep;
-    public String[][] solveMaze(int[][] maze,int startingRow, int startingCol, boolean step, JButton[][] buttonsArr)//outputs solutions of maze
+    public String[][] solveMaze(int[][] maze,int startingRow, int startingCol, boolean step)//outputs solutions of maze
     {
-        buttons=buttonsArr;
         stepByStep=step;
         List<String> list = new ArrayList<>();
         ROWBOUNDS = maze.length;
@@ -44,7 +42,7 @@ public class DFS_final {
         else if(visited[row][col]){return;}
         // marks cell as visited
         visited[row][col]= true;
-        if(stepByStep){buttons[row][col].setBackground(new Color(11, 206, 206));}
+        
 
         if(maze[row][col]==3){
             list.add(path+"["+row+","+col+"]");

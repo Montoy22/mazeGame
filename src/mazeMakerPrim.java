@@ -83,19 +83,4 @@ public class mazeMakerPrim {
         maze[maze.length-1][maze[0].length-2]=3;
         return maze;
     }
-
-
-//    static void printMazeArray(int[][] maze) {
-//        for (int[] row : maze) {
-//            for (int cell : row) {
-//                System.out.print(cell);
-//            }
-//            System.out.println();
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        int[][] maze = generateMaze(10, 10);
-//        printMazeArray(maze);
-//    }
 }

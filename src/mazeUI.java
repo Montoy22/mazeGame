@@ -112,7 +112,7 @@ int[][] maze;
             @Override
             public void actionPerformed(ActionEvent e) {
                     BFS_final bfs_final = new BFS_final();
-                    solutionArr = bfs_final.solveMaze(maze,0,0,step, buttons);
+                    solutionArr = bfs_final.solveMaze(maze,0,0,step);
                     for(String[] cell:solutionArr){
                         colorCells(Integer.parseInt(cell[0]),Integer.parseInt(cell[1]));
                     }
@@ -123,7 +123,7 @@ int[][] maze;
             @Override
             public void actionPerformed(ActionEvent e) {
                     DFS_final dfs_final = new DFS_final();
-                    solutionArr = dfs_final.solveMaze(maze, 0, 0, step,buttons);
+                    solutionArr = dfs_final.solveMaze(maze, 0, 0, step);
                     for(String[] cell:solutionArr){
                     colorCells(Integer.parseInt(cell[0]),Integer.parseInt(cell[1]));
                     }
@@ -136,7 +136,7 @@ int[][] maze;
                 if(step){}
                 else{
                     DFS2_final dfs2_final = new DFS2_final();
-                    solutionArr = dfs2_final.solveMaze(maze, 0, 0, step, buttons);
+                    solutionArr = dfs2_final.solveMaze(maze, 0, 0);
                     for(String[] cell:solutionArr){
                     colorCells(Integer.parseInt(cell[0]),Integer.parseInt(cell[1]));
                     }
