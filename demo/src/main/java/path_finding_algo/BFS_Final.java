@@ -1,6 +1,5 @@
 package path_finding_algo;
 import javax.swing.*;
-
 import java.awt.*;
 import java.util.*;
 import java.util.List;
