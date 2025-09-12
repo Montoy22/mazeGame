@@ -17,6 +17,8 @@ import maze_making_algo.mazeMakerAB;
 import maze_making_algo.mazeMakerRB;
 import maze_making_algo.mazeMakerPrim;
 
+
+
 public class mazeBuilderUI {
         int [][] maze = {
                 {0,1,0,0,0},
@@ -32,13 +34,14 @@ public class mazeBuilderUI {
     String mazeGenerationAlgorithm="";
     JPanel[][] preview;
     boolean mazeModified= false;
+    JFrame frame;
     mazeBuilderUI(){
-            JFrame frame = new JFrame("Maze solver");
+            frame = new JFrame("Maze solver");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(800, 700);
             frame.setLayout(new BorderLayout());
 
-            JLabel titleLabel = new JLabel("MΛZΣ ƧӨᄂVΣЯ ");
+            JLabel titleLabel = new JLabel("MΛZΣ ƧӨLVΣЯ ");
             titleLabel.setFont(new Font("Hoefler Text",Font.BOLD,25));
             titleLabel.setPreferredSize(new Dimension(50, 60));
             frame.add(titleLabel, BorderLayout.NORTH);
@@ -53,6 +56,7 @@ public class mazeBuilderUI {
             JPanel buttonPanel1 = new JPanel(new FlowLayout());
             JButton buttonGenerateMaze = new JButton("Generate");
             JButton saveButton = new JButton("save");
+            JButton returnButton = new JButton("return to main menu"); 
 
 
             JLabel rowLabel = new JLabel("Rows:");
@@ -87,14 +91,11 @@ public class mazeBuilderUI {
             JPanel paddedBoardPreview = new JPanel(new BorderLayout());
             paddedBoardPreview.setBorder(new EmptyBorder(20, 20, 20, 80));
 
-            JLabel descriptionText = new JLabel("Select a maze building algorithm by " +
-                    "clicking one of the 4 buttons\n");
 
             generationAlgorithmKruskal.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mazeGenerationAlgorithm="Kruskal";
-                    descriptionText.setText("The chosen algorithm generates a maze using Kruskal's algorithm.");
                 }
             });
 
@@ -102,7 +103,6 @@ public class mazeBuilderUI {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mazeGenerationAlgorithm="Prim";
-                    descriptionText.setText("The chosen algorithm generates a maze using Prim's algorithm.");
                 }
             });
 
@@ -110,14 +110,14 @@ public class mazeBuilderUI {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mazeGenerationAlgorithm="RecursiveBacktracking";
-                    descriptionText.setText("The chosen algorithm generates a maze using a recursive backtracking algorithm.");                }
+                    }
             });
 
             generationAlgorithmAB.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mazeGenerationAlgorithm="Aldous-Broder";
-                    descriptionText.setText("The chosen algorithm generates a maze using Aldous-Broder's algorithm.");                }
+                }
             });
 
             buttonGenerateMaze.addActionListener(new ActionListener() {
@@ -131,7 +131,6 @@ public class mazeBuilderUI {
                     }
                     boardPreview.removeAll();
                     boardPreview.setLayout(new GridLayout(rows, cols));
-                   // preview = new JPanel[rows][cols];
                     for (int row = 0; row < rows; row++) {
                         for (int col = 0; col < cols; col++) {
                             JPanel square = new JPanel();
@@ -204,6 +203,21 @@ public class mazeBuilderUI {
                     JOptionPane.showMessageDialog(frame, "Please enter valid integers!", "Input Error", JOptionPane.ERROR_MESSAGE);
                 }
             });
+
+            returnButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new UI();
+                    frame.dispose();
+                }
+            });
+            returnButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new UI();
+                    frame.dispose();
+                }
+            });
         buttonPanel.add(generationAlgorithmKruskal);
         buttonPanel.add(generationAlgorithmPrim);
         buttonPanel.add(generationAlgorithmRB);
@@ -212,6 +226,7 @@ public class mazeBuilderUI {
         buttonPanel1.add(buttonGenerateMaze);
         buttonPanel1.add(saveButton);
         buttonPanel1.add(submitButton);
+        buttonPanel1.add(returnButton);
         frame.add(buttonPanel, BorderLayout.WEST);
 
         JPanel bottomPanel = new JPanel();

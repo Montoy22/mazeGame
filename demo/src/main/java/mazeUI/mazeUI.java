@@ -18,12 +18,14 @@ int[][] maze;
     JButton[][] buttons;
     boolean step=false;
     String[][] solutionArr;
-    public mazeUI(int[][] maze){
+    JFrame frame;
+
+    mazeUI(int[][] maze){
         this.maze=maze;
         ROWBOUNDS = maze.length;
         COLBOUNDS = maze[0].length;
         buttons=  new JButton[ROWBOUNDS][COLBOUNDS];
-        JFrame frame = new JFrame("Maze Game");
+        frame = new JFrame("Maze Game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 700);
         frame.setLayout(new GridLayout(ROWBOUNDS, COLBOUNDS));
@@ -84,6 +86,7 @@ int[][] maze;
         JMenu solutionMenu = new JMenu("See Solution");
         JMenu optionMenu = new JMenu("Option");
         JMenu helpMenu = new JMenu("Help");
+        JMenu returnMenu = new JMenu("Return");
 
         // Creating menu items
         JMenuItem show = new JMenuItem("check");
@@ -94,6 +97,7 @@ int[][] maze;
         JMenuItem stepOption = new JMenuItem("step by step");
         JMenuItem changeMazeOption = new JMenuItem("select maze");
         JMenuItem resetScreen = new JMenuItem("reset screen");
+        JMenuItem returnToMenu = new JMenuItem("return to menu"); 
 
         // Adding menu items to menus
         answerMenu.add(show);
@@ -104,12 +108,14 @@ int[][] maze;
         optionMenu.add(changeMazeOption);
         optionMenu.add(resetScreen);
         helpMenu.add(aboutItem);
+        returnMenu.add(returnToMenu);
 
         // Adding menus to the menu bar
         menuBar.add(answerMenu);
         menuBar.add(solutionMenu);
         menuBar.add(optionMenu);
         menuBar.add(helpMenu);
+        menuBar.add(returnMenu);
 
         //Adding behaviors to menu items
         show.addActionListener(e -> checkAnswer());
@@ -181,6 +187,14 @@ int[][] maze;
                 mazeLoader mL = new mazeLoader();
                 int[][] newMaze=mL.selectMaze();
                 new mazeUI(newMaze);
+            }
+        });
+
+        returnToMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new UI();
+                frame.dispose();
             }
         });
 
